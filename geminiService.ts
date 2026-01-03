@@ -2,7 +2,7 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 import { Lesson, Grade } from "./types";
 
-const API_KEY = process.env.API_KEY || "";
+const API_KEY = process.env.GEMINI_API_KEY || "";
 const genAI = new GoogleGenAI({ apiKey: API_KEY });
 
 export const createLearningChat = (grade: Grade, lesson: Lesson): Chat => {
