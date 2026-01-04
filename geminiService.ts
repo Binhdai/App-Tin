@@ -2,11 +2,11 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 import { Lesson, Grade } from "./types";
 
-const API_KEY = process.env.GEMINI_API_KEY || "";
-const genAI = new GoogleGenAI({ apiKey: API_KEY });
+// Always use const ai = new GoogleGenAI({apiKey: process.env.API_KEY});
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 export const createLearningChat = (grade: Grade, lesson: Lesson): Chat => {
-  return genAI.chats.create({
+  return ai.chats.create({
     model: 'gemini-3-flash-preview',
     config: {
       systemInstruction: `Bạn là một trợ lý giáo dục chuyên nghiệp về môn Tin học lớp ${grade} tại Việt Nam. 
@@ -19,5 +19,6 @@ export const createLearningChat = (grade: Grade, lesson: Lesson): Chat => {
 
 export const sendMessageToGemini = async (chat: Chat, message: string) => {
   const result = await chat.sendMessage({ message });
+  // The .text property directly returns the generated string
   return result.text;
 };

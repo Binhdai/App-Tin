@@ -27,3 +27,12 @@ export interface ChatMessage {
   text: string;
   timestamp: Date;
 }
+
+export interface UserStats {
+  fullName: string;
+  grade: Grade;
+  totalCorrect: number;
+  totalQuestions: number;
+  completedLessonIds: string[];
+  totalPoints: number;
+}
