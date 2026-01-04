@@ -3,7 +3,7 @@ import { GoogleGenAI, Chat } from "@google/genai";
 import { Lesson, Grade } from "./types";
 
 // Always use const ai = new GoogleGenAI({apiKey: process.env.API_KEY});
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const createLearningChat = (grade: Grade, lesson: Lesson): Chat => {
   return ai.chats.create({
